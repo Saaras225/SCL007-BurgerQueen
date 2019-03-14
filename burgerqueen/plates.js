@@ -1,0 +1,17 @@
+const plates = [
+    {name:'Cafe americano',id:1,type:['desayuno', 'restodia'],cost:'500'},
+    {name:'Cafe con leche',id:2,type:['desayuno', 'restodia'],cost:'700'},
+    {name:'Sandwich de jamón y queso',id:3,type:['desayuno'],cost:'1000'},
+    {name:'Jugo natural',id:4,type:['desayuno', 'restodia'],cost:'700'},
+    {name:'Hamburguesa Simple',id:5,type:['restodia'],cost:'1500'},
+    {name:'Hamburguesa Doble',id:6,type:['restodia'],cost:'2500'},
+    {name:'Papas fritas',id:7,type:['restodia'],cost:'500',mode:'acompanamiento'},
+    {name:'Onion rings',id:8,type:['restodia'],cost:'500',mode:'acompanamiento'},
+    {name:'Agua 500ml',id:9,type:['restodia'],cost:'500',mode:'bebidas'},
+    {name:'Agua 750ml',id:10,type:['restodia'],cost:'800',mode:'bebidas'},
+    {name:'Gaseosa 500ml',id:11,type:['restodia'],cost:'700',mode:'bebidas'},
+    {name:'Gaseosa 750ml',id:12,type:['restodia'],cost:'1000',mode:'bebidas'}
+
+]
+
+export default plates

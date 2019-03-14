@@ -1,0 +1,104 @@
+{
+
+    "plates":[
+    {
+        "name":"Cafe americano",
+        "id":1,
+        "desayuno":"desayuno",
+        "cost":"500"
+    },
+
+    {
+        "name":"Cafe con leche",
+        "id":2,
+        "desayuno":"desayuno",
+        "cost":"700"
+    },
+
+    {
+        "name":"Sandwich de jamón y queso",
+        "id":3,
+        "desayuno":"desayuno",
+        "cost":"1000"
+    },
+
+    {
+        "name":"Jugo natural",
+        "id":4,
+        "desayuno":"desayuno",
+        "cost":"700"
+
+    },
+
+    {
+        "name":"Hamburguesa Simple",
+        "id":5,
+        "restodia":"resto día",
+        "cost":"1500"
+
+    },
+    
+    {
+        "name":"Hamburguesa Doble",
+        "id":6,
+        "restodia":"resto día",
+        "cost":"2500"
+
+    },
+    
+    {
+        "name":"Papas fritas",
+        "id":7,
+        "restodia":"resto día",
+        "cost":"500",
+        "mode":"acompanamiento"
+
+    },
+    
+    {
+        "name":"Onion rings",
+        "id":8,
+        "restodia":"resto día",
+        "cost":"500",
+        "mode":"acompanamiento"
+
+    },
+    
+    {
+        "name":"Agua 500ml",
+        "id":9,
+        "restodia":"resto día",
+        "cost":"500",
+        "mode":"bebidas"
+
+    },
+    
+    {
+        "name":"Agua 750ml",
+        "id":10,
+        "restodia":"resto día",
+        "cost":"800",
+        "mode":"bebidas"
+
+    },
+    
+    {
+        "name":"Gaseosa 500ml",
+        "id":11,
+        "restodia":"resto día",
+        "cost":"700",
+        "mode":"bebidas"
+    },
+    
+    {
+        "name":"Gaseosa 750ml",
+        "id":12,
+        "restodia":"resto día",
+        "cost":"1000",
+        "mode":"bebidas"
+    }
+
+    ]
+}
+
+    
