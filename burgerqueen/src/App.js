@@ -29,15 +29,34 @@ class App extends Component {
   render() {
     return (
       <div clasName="App">
-          <nav className="navbar navbar-dark bg-dark">
-          <a href=" " className="text-white">BURGERQUEEN</a>
-          </nav>
-          <button id="desayuno" type="button" className="btn btn-success active" onClick={this.showMe}>Desayuno</button>
-          <button id= "restodia" type="button" className="btn btn-success active" onClick={this.showMe}>Resto del Día</button>
-          <br/>{this.state.toShow}
-          
-          
-          
+            <nav className="navbar navbar-dark bg-dark">
+              <a href=" " className="text-white">BURGERQUEEN</a>
+            </nav>
+              <div className="row">
+                        <div className="col-md-6">
+                          <button id="desayuno" type="button" className="btn btn-success active" onClick={this.showMe}>Desayuno</button>
+                          <button id= "restodia" type="button" className="btn btn-success active" onClick={this.showMe}>Resto del Día</button>
+                          <br/>{this.state.toShow}
+                          </div>
+                          <div className="col-md-6">
+                            <h2>TU PEDIDO</h2>            
+                              <table className="table table-hover">
+                                  <thead>
+                                    <tr>
+                                      <th>Item</th>
+                                      <th>Costo</th>
+                                      </tr>
+                                    </thead>
+                                      <tbody>
+                                        <tr>
+                                          <td>John</td>
+                                          <td>Doe</td>
+                                          <td>john@example.com</td>
+                                          </tr>
+                                        </tbody>
+                                </table>
+                          </div>
+                </div>      
         </div>
     );
   }
