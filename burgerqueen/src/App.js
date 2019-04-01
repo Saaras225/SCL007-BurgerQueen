@@ -7,7 +7,6 @@ import Menu from "./components/Menu";
 import Formulario from "./components/Formulario";
 
 class App extends Component {
-  
   render(){
     return(
           <div className="Navegacion">
@@ -16,15 +15,14 @@ class App extends Component {
           <div className="col-md-6">
           <Menu /> 
           </div>
-          <div className="col-md-4">
+          <div className="col-md-3">
           <Formulario />
-          </div>     
+          </div>        
         </div>
         </div>
       );
   }
 }
-
 
 
 export default App;

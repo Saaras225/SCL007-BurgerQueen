@@ -12,13 +12,21 @@ class Menu extends Component{
         this.showMe= this.showMe.bind(this);
         }
     
-    showMe(e){
-        console.log(e.currentTarget);   
+    getdata(e){
+        let plate_id = e.target.id;
+        let selectedPlate = plates.find((plate)=>{
+            return plate.id == plate_id;
+        });
+        console.log(selectedPlate);
+
+    }
+
+    showMe(e){   
         this.setState({
         ...this.state,
         toShow: this.state.plates.filter((plates,i)=>{return plates.type==e.currentTarget.id}).map((plates, i)=>{
             return(
-            <button type="button" className="btn btn-success active"onClick="">{plates.name}<br/>{plates.cost}</button>
+            <button type="button" id={plates.id} className="btn btn-success active" onClick={this.getdata}>{plates.name}<br/>{plates.cost}</button>
             )
         })
         })
@@ -28,8 +36,9 @@ class Menu extends Component{
             <div ClassName="Menu">
                 <button id="desayuno" type="button" className="btn btn-success active" onClick={this.showMe}>Desayuno</button>
                 <button id= "restodia" type="button" className="btn btn-success active" onClick={this.showMe}>Resto del Día</button>
-                            <br/>{this.state.toShow}  
+                            <br/>{this.state.toShow}
                     </div>
+            
         )
     }
 }

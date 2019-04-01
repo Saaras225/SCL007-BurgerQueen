@@ -102,7 +102,7 @@
 
         "name":"Extra de queso",
         "id":17,
-        "type":["AlmuerzoyCena"],
+        "type":"restodia",
         "cost":"500",
         "mode":"bebidas"
     
@@ -112,12 +112,9 @@
     
         "name":"Extra de huevo",
         "id":18,
-        "type":["AlmuerzoyCena"],
+        "type":"restodia",
         "cost":"500",
         "mode":"bebidas"
     }
-
     ]
 }
-
-    
