@@ -1,20 +1,21 @@
 import React, {Component} from 'react';
 import db from '../Firebase';
 
-import {Menu} from './Menu';
-
 
 
 class Formulario extends Component{
     searchRef=React.createRef();
-    constructor(){
-        super();
+    constructor(props){
+        super(props);
         this.state={
+            order:[{
             name:'',
             item:'',
             price:'',
             total:'',
-            }
+            }]
+        };
+
         this.sendit= this.sendit.bind(this);
         this.send= this.send.bind(this);
         }
@@ -45,26 +46,48 @@ class Formulario extends Component{
             
     }
 
+    renderProduct = (product = {}) => {
+        return (
+            <li>
+                <div className="alert alert-dismissible alert-secondary">
+                    <button
+                        id={`button-${product.id}`}
+                        key={`button-${product.id}`}
+                        onClick={this.props.onProductDeleted}
+                        type="button"
+                        class="close">
+                        &times;
+                    </button>
+                    <strong>{product.name}</strong>
+                    <strong>{product.cost}</strong>
+                </div>
+            </li>
+        );
+    }
+
+    renderTotal = () => {
+        let counter = 0;
+        this.props.productList.map(product => counter += product.cost);
+        return <strong>Total es: {counter}</strong>;
+    }
+
     render() {
         return (
             <div className="col-md-12">
-                <div className="jumbotron">
-                    <input type="name" class="form-control" id="name" placeholder="Ingresa tu nombre"/>
+                <div className="row">
+                    <div className="jumbotron">
+                        <input type="name" className="form-control" id="name" placeholder="Ingresa tu nombre"/>
                         <div className="list-group">
                             <ul>
-                            <li><div class="alert alert-dismissible alert-secondary">
-                            <button type="button" class="close">&times;</button>
-                            <strong>{this.getdata}</strong>
-                            </div></li>
-                            <li><div class="alert alert-dismissible alert-secondary">
-                            <button type="button" class="close">&times;</button>
-                            <strong>PASTA CON CARNE</strong>
-                            </div></li>
+                                {this.props.productList.map(product => this.renderProduct(product))}
                             </ul>
-                            </div>
-            
+                        </div>
+                        <div className="total">
+                            {this.props.productList.length > 0 ? this.renderTotal() : null}
+                        </div>
                     </div>
                 </div>
+            </div>
             );
         }
 }

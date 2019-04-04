@@ -1,69 +1,59 @@
-import React, { Component } from 'react'; 
-import ReactDOM from "react-dom";
-import './App.css';
-import Nombre from './container/Nombre';
-import {plates} from "./plates.json"
 
-//import Desayuno from './components/Desayuno';
-//import RestDay from './components/RestDay';
-
-
-
-class App extends Component {
+class Menu extends Component{
   constructor(){
-    super();
-    this.state={
-      plates:plates
-    }
+      super();
+      this.state={
+          plates:plates,
+          toShow:[],
+          }
+      this.showMe= this.showMe.bind(this);
+      }
+
+  showMe(e){   
+      this.setState({
+      ...this.state,
+      toShow: this.state.plates.filter((plates,i)=>{return plates.type==e.currentTarget.id}).map((plates, i)=>{
+          return(
+          <button type="button" id={plates.id} className="btn btn-success active" onClick={this.getdata}>{plates.name}<br/>{plates.cost}</button>
+          )
+      })
+      })
   }
-  
+
+  getdata(e){
+      let plate_id = e.target.id;
+      let selectedPlate = plates.find((plate)=>{return plate.id == plate_id;});
+      console.log(selectedPlate);
+  }
 
 
   render() {
-    const plateDesayuno= this.state.plates.map((plates, i)=>{
-      return(
-        <button className="btn">
-          <div className="col-md-4">
-            <div className="card mt-4">
-              <div className="card-header">
-                <h3>{plates.name}</h3>
-                <span className= "badge bagde-pill badge-danger ml-2">
-                {plates.desayuno}
-                </span>
+      return (
+      <div className="burguerqueen">
+          <div ClassName="Menu">
+              <button id="desayuno" type="button" className="btn btn-success active" onClick={this.showMe}>Desayuno</button>
+              <button id= "restodia" type="button" className="btn btn-success active" onClick={this.showMe}>Resto del Día</button>
+                  <br/>{this.state.toShow}
               </div>
-              <div className="card-body">
-                <p>{plates.cost}</p>
+          <div className="Formulario">
+          <div className="col-md-12">
+          <div className="row">
+              <div className="jumbotron">
+                  <input type="name" className="form-control" id="name" placeholder="Ingresa tu nombre"/>
+                      <div className="list-group">
+                          <ul>
+                          <li><div className="alert alert-dismissible alert-secondary">
+                          <button type="button" class="close"><strong>{this.getdata}</strong></button>
+                          </div></li>
+                          </ul>
+                          </div>
+                      </div>
+                  </div>
               </div>
-            </div>
+              </div>
           </div>
-         </button>
-        )
-    })
-
-    return (
-      <div clasName="App">
-          <nav className="navbar navbar-dark bg-dark">
-          <a href=" " className="text-white">BURGERQUEEN</a>
-          </nav>
-        
-        
-        <div className="container">
-          <div className="row mt-4">
-            {plateDesayuno}
-          </div>
-        </div>
-
-          <button type="button" className="btn btn-success active">Desayuno</button>
-          <button type="button" className="btn btn-success active">Resto del Día</button>
-          
-            <container className="Nombre">
-            </container>
-          
-        </div>
-    );
+      )
   }
 }
 
-
-
-export default App;
+export default Menu;

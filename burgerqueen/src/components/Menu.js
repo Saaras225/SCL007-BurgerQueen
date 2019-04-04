@@ -1,44 +1,30 @@
 import React, {Component} from 'react';
 import {plates} from "../plates.json";
 
-
 class Menu extends Component{
-    constructor(){
-        super();
-        this.state={
-            plates:plates,
-            toShow:[],
-            }
-        this.showMe= this.showMe.bind(this);
-        }
-    
-    getdata(e){
-        let plate_id = e.target.id;
-        let selectedPlate = plates.find((plate)=>{
-            return plate.id == plate_id;
-        });
-        console.log(selectedPlate);
-
+    renderCategory = (category) => {
+        // const { name, label } = category;
+        return (
+            <button
+                id={category.name}
+                key={category.name}
+                type="button"
+                className="btn btn-success active"
+                onClick={this.props.onCategorySelected}>
+                {category.label}
+            </button>
+        );
     }
-
-    showMe(e){   
-        this.setState({
-        ...this.state,
-        toShow: this.state.plates.filter((plates,i)=>{return plates.type==e.currentTarget.id}).map((plates, i)=>{
-            return(
-            <button type="button" id={plates.id} className="btn btn-success active" onClick={this.getdata}>{plates.name}<br/>{plates.cost}</button>
-            )
-        })
-        })
-    }
+    // DRY
     render() {
         return (
-            <div ClassName="Menu">
-                <button id="desayuno" type="button" className="btn btn-success active" onClick={this.showMe}>Desayuno</button>
-                <button id= "restodia" type="button" className="btn btn-success active" onClick={this.showMe}>Resto del Día</button>
-                            <br/>{this.state.toShow}
-                    </div>
-            
+        <div className="burguerqueen">
+            <div className="Menu">
+                {this.props.categoryList.map(category => this.renderCategory(category))}
+                <br/>
+                {this.props.productList}
+                </div>
+            </div>
         )
     }
 }
