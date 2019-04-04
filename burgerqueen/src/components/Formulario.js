@@ -37,7 +37,7 @@ class Formulario extends Component{
             total:'',
         })
         db.collection("order").add({
-            name:this.state.name}+{item:this.state.item}+{price:this.state.price}+{total:this.state.total}).then(()=>{
+            name:this.state.name}+{item:this.product.name}+{price:this.product.cost}+{total:this.product.total}).then(()=>{
             console.log("enviado");
             })
         .catch (()=>{
@@ -49,19 +49,19 @@ class Formulario extends Component{
     renderProduct = (product = {}) => {
         return (
             <li>
-                <div className="alert alert-dismissible alert-secondary">
-                    <button
-                        id={`button-${product.id}`}
-                        key={`button-${product.id}`}
-                        onClick={this.props.onProductDeleted}
-                        type="button"
-                        class="close">
-                        &times;
-                    </button>
-                    <strong>{product.name}</strong>
-                    <strong>{product.cost}</strong>
-                </div>
-            </li>
+            <div className="alert alert-dismissible alert-secondary">
+                <button
+                    id={`button-${product.id}`}
+                    key={`button-${product.id}`}
+                    onClick={this.props.onProductDeleted}
+                    type="button"
+                    class="close">
+                    &times;
+                </button>
+                <strong>{product.name}</strong><br />
+                <strong>{product.cost}</strong>
+            </div>
+        </li>
         );
     }
 
@@ -85,6 +85,7 @@ class Formulario extends Component{
                         <div className="total">
                             {this.props.productList.length > 0 ? this.renderTotal() : null}
                         </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
                     </div>
                 </div>
             </div>
